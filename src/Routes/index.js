@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Home from "../Pages/Home";
+import Layout from "../Components/Layouts";
+
 
 const AppRoutes = () => {
   return (
@@ -17,9 +19,12 @@ const AppRoutes = () => {
                 <Helmet>
                   <title>{`${pageTitle && `${pageTitle}-`}NFT`}</title>
                 </Helmet>
+                <Layout>
                 <Suspense fallback={<h1>loading</h1>}>
                   <Component />
                 </Suspense>
+                </Layout>
+                
               </>
             }
           />
