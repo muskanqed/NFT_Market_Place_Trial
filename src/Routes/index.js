@@ -1,9 +1,8 @@
 import React, { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Home from "../Pages/Home";
 import Layout from "../Components/Layouts";
-
 
 const AppRoutes = () => {
   return (
@@ -20,11 +19,10 @@ const AppRoutes = () => {
                   <title>{`${pageTitle && `${pageTitle}-`}NFT`}</title>
                 </Helmet>
                 <Layout>
-                <Suspense fallback={<h1>loading</h1>}>
-                  <Component />
-                </Suspense>
+                  <Suspense fallback={<h1>loading</h1>}>
+                    <Component />
+                  </Suspense>
                 </Layout>
-                
               </>
             }
           />
@@ -44,6 +42,16 @@ const publicRoutes = [
     path: "/faq",
     pageTitle: "FAQ",
     Component: lazy(() => import("../Pages/FAQ")),
+  },
+  {
+    path: "/How-it-works",
+    pageTitle: "How-it-works",
+    Component: lazy(() => import("../Pages/Howitworks")),
+  },
+  {
+    path: "/Feature-artist",
+    pageTitle: "Feature-artist",
+    Component: lazy(() => import("../Pages/Featuredartist")),
   },
 ];
 
