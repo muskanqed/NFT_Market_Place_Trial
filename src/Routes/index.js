@@ -53,6 +53,31 @@ const publicRoutes = [
     pageTitle: "Feature-artist",
     Component: lazy(() => import("../Pages/Featuredartist")),
   },
+  {
+    path: "/About",
+    pageTitle: "About",
+    Component: lazy(() => import("../Pages/About")),
+  },
+  {
+    path: "/Help-Center",
+    pageTitle: "Help-Center",
+    Component: lazy(() => import("../Pages/HelpCenter")),
+  },
+  {
+    path: "/Brochure",
+    pageTitle: "Brochure",
+    Component: lazy(() => import("../Pages/Brochure")),
+  },
+  {
+    path: "/Contact",
+    pageTitle: "/Contact",
+    Component: lazy(() => import("../Pages/Contact")),
+  },
+  {
+    path: "/Career",
+    pageTitle: "Career",
+    Component: lazy(() => import("../Pages/Career")),
+  },
 ];
 
 export default AppRoutes;
