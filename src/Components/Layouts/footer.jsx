@@ -8,6 +8,9 @@ import {
   Image,
   Button,
   Divider,
+  chakra,
+  VisuallyHidden,
+  StackDivider,
 } from "@chakra-ui/react";
 import {
   FaTwitter,
@@ -21,13 +24,40 @@ import {
 
 import { Link } from "react-router-dom";
 import logo from "../../Assests/logo.svg";
-import { footerNavItems } from "../../Constants/footernavitems";
+import {
+  footerNavItems,
+  footerBottomContent,
+} from "../../Constants/footernavitems";
 
 const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={"700"} fontSize={"sm"} mb={2}>
       {children}
     </Text>
+  );
+};
+
+const SocialButton = ({ children, label, href }) => {
+  return (
+    <chakra.button
+      rounded={"full"}
+      cursor={"pointer"}
+      as={"a"}
+      href={href}
+      target={"_blank"}
+      display={"inline-flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      transition={"background 0.3s ease"}
+      p={"1.5"}
+      _hover={{
+        bg: "button_gradient",
+        color: "white",
+      }}
+    >
+      <VisuallyHidden>{label}</VisuallyHidden>
+      {children}
+    </chakra.button>
   );
 };
 
@@ -110,6 +140,87 @@ const Footer = () => {
         my={"14"}
         display={{ base: "none", lg: "block" }}
       />
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        color={"black"}
+        justify={{ base: "space-between" }}
+        spacing={{ base: "10" }}
+        rowGap={{ base: "4" }}
+      >
+        <Stack
+          direction={"row"}
+          fontSize={"xs"}
+          spacing={{ base: "2", lg: "4" }}
+          order={{ base: 2, lg: 1 }}
+          justify={{ base: "center", lg: "start" }}
+          flexWrap={"wrap"}
+          whiteSpace={"nowrap"}
+          rowGap={{ base: "2" }}
+          align={"center"}
+        >
+          <Text pr={{ base: "2", lg: "6" }} fontSize={15} fontWeight={400}>
+            @All Rights Reserved
+          </Text>
+          <Stack
+            direction={"row"}
+            fontSize={"xs"}
+            spacing={{ base: "2", lg: "4" }}
+            justify={{ base: "center", lg: "start" }}
+            flexWrap={"wrap"}
+            whiteSpace={"nowrap"}
+            rowGap={{ base: "2" }}
+            divider={<StackDivider borderColor={"black"} />}
+          >
+            {footerBottomContent.map(({ item = "", link = "#" }) => (
+              <Link
+                key={item}
+                href={link}
+                target={"_blank"}
+                textDecor={"underline"}
+                _hover={{
+                  textDecoration: "none",
+                  color: "red.700",
+                  borderColor: "transparent",
+                }}
+              >
+                {item}
+              </Link>
+            ))}
+          </Stack>
+        </Stack>
+        <Stack
+          direction={"row"}
+          spacing={{ base: "6", lg: "2" }}
+          order={{ base: 1, lg: 2 }}
+          justify={{ base: "center", lg: "start" }}
+        >
+          <SocialButton
+            label={"Facebook"}
+            href={"https://www.facebook.com/Miko-108227973861366/"}
+            children={<FaFacebook size="21px" />}
+          />
+          <SocialButton
+            label={"Twitter"}
+            href={"https://twitter.com/mikorobotusa"}
+            children={<FaTwitter size="21px" />}
+          />
+          <SocialButton
+            label={"Instagram"}
+            href={"https://www.instagram.com/mikorobotusa/"}
+            children={<FaInstagram size="21px" />}
+          />
+          <SocialButton
+            label={"Youtube"}
+            href={"https://www.youtube.com/c/MikoRobot"}
+            children={<FaYoutube size="21px" />}
+          />
+          <SocialButton
+            label={"Linkedin"}
+            href={"https://www.linkedin.com/company/mikorobot/mycompany/"}
+            children={<FaLinkedin size="21px" />}
+          />
+        </Stack>
+      </Stack>
     </Box>
   );
 };

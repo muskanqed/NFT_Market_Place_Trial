@@ -25,3 +25,18 @@ export const footerNavItems = [
     ],
   },
 ];
+
+export const footerBottomContent = [
+  {
+    item: "Terms and Conditions",
+    link: "#",
+  },
+  {
+    item: "Privacy Policy",
+    link: "#",
+  },
+  {
+    item: "Do not sell my personal information",
+    link: "#",
+  },
+];
