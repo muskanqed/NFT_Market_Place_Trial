@@ -1,7 +1,14 @@
 import React from "react";
+import { Landing } from "../Components/Home";
+import { Box } from "@chakra-ui/react";
+import {} from "../API/listingservice";
 
 const Home = () => {
-  return <h1>You are in Home</h1>;
+  return (
+    <Box w={"full"} flex={1}>
+      <Landing />
+    </Box>
+  );
 };
 
 export default Home;

@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Home from "../Pages/Home";
 import Layout from "../Components/Layouts";
+import { Center, Spinner } from "@chakra-ui/react";
 
 const AppRoutes = () => {
   return (
@@ -19,7 +20,19 @@ const AppRoutes = () => {
                   <title>{`${pageTitle && `${pageTitle}-`}NFT`}</title>
                 </Helmet>
                 <Layout>
-                  <Suspense fallback={<h1>loading</h1>}>
+                  <Suspense
+                    fallback={
+                      <Center h={window.innerHeight} w={"full"} flex={1}>
+                        <Spinner
+                          thickness="4px"
+                          speed="0.60s"
+                          emptyColor="gray.200"
+                          color="red.700"
+                          size={"xl"}
+                        />
+                      </Center>
+                    }
+                  >
                     <Component />
                   </Suspense>
                 </Layout>

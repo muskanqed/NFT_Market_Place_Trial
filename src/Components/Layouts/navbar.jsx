@@ -19,11 +19,11 @@ const NavBar = () => {
         bg={useColorModeValue("white", "grey.800")}
         minH={"60px"}
         color={useColorModeValue("grey.600", "white")}
-        border={1}
+        borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("grey.200", "grey.900")}
         align={"Center"}
-        px={{ base: 6 }}
+        px={{ base: 6, md: 16 }}
         py={{ base: 4 }}
       >
         <Flex flex={{ base: 1 }} justify={{ base: "start" }}>
@@ -63,7 +63,7 @@ const DesktopNav = () => {
   const location = useLocation();
 
   return (
-    <Stack direction={"row"} spacing={10}>
+    <Stack direction={"row"} spacing={4}>
       {navItems.map(({ item, link }) => (
         <NavLink to={link}>
           <Text
